@@ -1,21 +1,56 @@
 import java.util.*;
-class ASS2
+class ASS2_Class
 {
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
+		Operation op = new Operation();
 		System.out.print("\n Enter Any Number : ");
 		int num = sc.nextInt();
-		int temp, div, d1, d2, d3, d4;
+		int temp, div;
 		String result = "";
 		
 			temp = num;
-			div = temp / 100000000;
+			div = temp / 1000000;
 			if( div != 0 )
 			{
-				result += " ";
-				if( div <=9) 
-				{
+				result += op.number_to_word( div ) + " Million";
+			}
+			temp = temp % 1000000;
+			div = temp / 1000;
+			if( div != 0 )
+			{
+				result += op.number_to_word( div ) + " Thousand";
+			}
+			temp = temp % 1000;
+			div = temp / 100;
+			if( div != 0 )
+			{
+				result += op.number_to_word(div) + " Hundred";
+			}
+			div = temp % 100;
+			if( div != 0 )
+			{
+				result += op.number_to_word(div);
+			}
+		System.out.println("\n Number in Words \n\n" + result + ".\n");
+	}	
+}	
+
+
+
+
+
+class Operation
+{
+	String number_to_word( int div )
+	{
+		String result = "";
+		int d1,d2,d3,d4;
+		result += " ";
+		
+		if( div <20) 
+			{
 					switch( div )
 					{
 						case 1:
@@ -45,11 +80,40 @@ class ASS2
 						case 9:
 							result += "Nine";
 							break;
+						case 10:
+							result += "Ten";
+							break;
+						case 11:
+							result += "Eleven";
+							break;
+						case 12:
+							result += "Twelve";
+							break;
+						case 13:
+							result += "Thirteen";
+							break;
+						case 14:
+							result += "Forteen";
+							break;
+						case 15:
+							result += "Fifteen";
+							break;
+						case 16:
+							result += "Sixteen";
+							break;
+						case 17:
+							result += "Seventeen";
+							break;
+						case 18:
+							result += "Eighteen";
+							break;
+						case 19:
+							result += "Ninteen";
+							break;	
 						
 					}
-					result += " Hundred";
-
-				}
+					
+			}
 				
 					
 				else
@@ -89,6 +153,8 @@ class ASS2
 								break;
 													
 						}
+						result += " Hundred and ";
+
 					}
 					
 					if( d2 != 0 )
@@ -231,10 +297,23 @@ class ASS2
 						}
 					}
 				}
-				
-			result+=" Million ";			
-			}			
-			
-		System.out.println("\n Number in Words \n" + result + ".\n");
+				return result;	
+		
 	}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

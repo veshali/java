@@ -1,5 +1,5 @@
 import java.util.*;
-class NumberAssignmentOne
+class ASS1_Switch
 {
 	public static void main(String[] args)
 	{
